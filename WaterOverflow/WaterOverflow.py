@@ -1,8 +1,5 @@
 import unittest
 
-#remove after use
-import inspect
-
 # Calculates the volume of liquid in glass j of row i 
 # for a liquid volume K in litres
 def calculate_liquid(i: int, j: int, K: float):
@@ -11,7 +8,7 @@ def calculate_liquid(i: int, j: int, K: float):
         i = 0;
     if(j < 0):
         j = 0;
-
+    number = 0;
     # Code for test_j_lesser_or_equal_than_i
     if (j > i):
         j = i
@@ -63,27 +60,26 @@ def calculate_liquid(i: int, j: int, K: float):
             if(glassVolume[index + row] > 0.25):
                 glassVolume[index + row] = 0.25
 
-            # Code for test_glass_has_half_of_exceeded_above Part 2
-            glassVolume[index + row + 1] = (K/2) 
+            # Code for test_glass_has_equal_of_glass_next_to_it
+            glassVolume[index + row + 1] = (K/2)
+
+            if(glassVolume[index + row + 1] != glassVolume[index + row]):
+                glassVolume[index + row + 1] = glassVolume[index + row]
+
             # Making sure the line above is compliant with test_first_glass_max_volume
             if(glassVolume[index + row + 1] > 0.25):
                 glassVolume[index + row + 1] = 0.25
-
-
-    return float(glassVolume[index])
+            number = index + row +1
+    return float(glassVolume[number])
 
 # The main to use the function
 if __name__ == "__main__":
-    #i = 2;
-    #j = 2;
-    #K = 2.0;
 
-
-    i = 3;
-    j = 3;
-    K = 1000;
+    i = 2;
+    j = 1;
+    K = 3*0.25 + 0.10;
     water = repr(calculate_liquid(i, j, K))
+    
+    print('For given volume of liquid K = ' + str(K) + ':\n ')
     print('Counting from 1: \nWater volume in glass ' + str(j + 1) + ', of row ' + str(i + 1) + ': ' + water + '\n')
     print('Counting from 0: \nWater volume in glass ' + str(j) + ', of row ' + str(i) + ': ' + water + '\n')
-
-    l = 0
