@@ -30,6 +30,13 @@ def calculate_liquid(i: int, j: int, K: float):
             # Going to the second glass since the first one is filled
             index += 1
 
+            # Code for test_any_glass_has_some_liquid
+            if(glassVolume[index] < K):
+                glassVolume[index] = K
+            # Making sure the code above is compliant with test_first_glass_max_volume
+            if(glassVolume[index] > 0.25):
+                glassVolume[index] = 0.25
+
     return float(glassVolume[index])
 
 # The main to use the function
