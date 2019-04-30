@@ -40,6 +40,26 @@ def calculate_liquid(i: int, j: int, K: float):
             if(glassVolume[index] > 0.25):
                 glassVolume[index] = 0.25
 
+            # Adding conditional for test_glass_glass_doesnt_have_liquid
+            # Reducing the volume by the volume consumed by the first glass
+            if(K >= 0.25):
+                K = K - 0.25
+            else:
+                K = 0.0
+
+            # Code for test_glass_has_half_of_exceeded_above Part 1
+            glassVolume[index + row] = K 
+            # Making sure the line above is compliant with test_first_glass_max_volume
+            if(glassVolume[index + row] > 0.25):
+                glassVolume[index + row] = 0.25
+
+            # Code for test_glass_has_half_of_exceeded_above Part 2
+            glassVolume[index + row + 1] = K 
+            # Making sure the line above is compliant with test_first_glass_max_volume
+            if(glassVolume[index + row + 1] > 0.25):
+                glassVolume[index + row + 1] = 0.25
+
+
     return float(glassVolume[index])
 
 # The main to use the function

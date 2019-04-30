@@ -155,7 +155,7 @@ class Test_MyTest(unittest.TestCase):
     # i = 2 has j = 0 ... 2 and this is total 6 glasses 
     # 6 glasses amount to 1.5l
     # The test will check for empty glasses if there is not enought liquid for all
-    def test_glass_glass_doesnt_have_liquid(self):
+    def test_glass_doesnt_have_liquid(self):
         i = 2;
         #j is defined as zero and it will take values up to i in the while loop
         j = 2;
