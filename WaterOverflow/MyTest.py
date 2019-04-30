@@ -159,7 +159,7 @@ class Test_MyTest(unittest.TestCase):
         i = 2;
         #j is defined as zero and it will take values up to i in the while loop
         j = 2;
-        K = 1.2;
+        K = 0.25;
         water = WaterOverflow.calculate_liquid(i, j, K)
         self.assertTrue(water == 0.0)
 
