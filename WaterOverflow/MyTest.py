@@ -57,5 +57,20 @@ class Test_MyTest(unittest.TestCase):
         water = WaterOverflow.calculate_liquid(i, j, K)
         self.assertEqual(water, 0.25)
 
+    # Expanding on the previous test: Each glass can hold 250ml
+    # Assuming that K is given in litres (mentioned in function documentation)
+    # The output of the function must not exceed 0.25
+    def test_any_glass_max_volume(self):
+        i = 3;
+        j = 3;
+        K = 100.0;
+
+        # The test passes for the first glass, so, I add the while loops to scan all values
+        # This will enable me to add the loop for all glasses in the body
+        for row in range(0, i):
+            for column in range(0, j):
+                water = WaterOverflow.calculate_liquid(i, j, K)
+                self.assertLessEqual(water, 0.25)
+
 if __name__ == '__main__':
     unittest.main()  
