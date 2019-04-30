@@ -6,9 +6,13 @@ import inspect
 # Calculates the volume of liquid in glass j of row i 
 # for a liquid volume K in litres
 def calculate_liquid(i: int, j: int, K: float):
-    #code for test_j_lesser_or_equal_than_i
+    # Code for test_j_lesser_or_equal_than_i
     if (j > i):
         j = i
+
+    #Code for test_K_is_negative
+    if(K < 0.0):
+        K = 0.0;
 
     # i and j are zero based, so the total number of glasses will be:
     glassesTotal = (i+1)*(i+2)/2
