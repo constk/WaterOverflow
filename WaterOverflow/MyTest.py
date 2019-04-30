@@ -113,6 +113,17 @@ class Test_MyTest(unittest.TestCase):
                 index +=1
         self.assertTrue(index + row + 1 == (i+1)*(i+2)/2)
 
+    # Each glass can hold up to 250ml
+    # Assuming that K is given in litres (mentioned in function documentation)
+    # The first glass must have K for K < 0.25l
+    def test_first_glass_volume_smaller_than_capacity(self):
+        i = 0;
+        j = 0;
+        K = 0.15;
+
+        water = WaterOverflow.calculate_liquid(i, j, K)
+        self.assertEqual(water, 0.15)
+
 
 if __name__ == '__main__':
     unittest.main()  
