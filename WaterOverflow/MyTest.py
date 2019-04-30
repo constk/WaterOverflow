@@ -35,8 +35,8 @@ class Test_MyTest(unittest.TestCase):
     # There is an error in the glass demonstration diagram in the exercise, for i = 3: j = 0, j = 1, j = 1, j = 2
     # Should read: i = 3: j = 0, j = 1, j = 2, j = 3
     def test_j_lesser_or_equal_than_i(self):
-        i = 5;
-        j = 6;
+        i = 2;
+        j = 3;
         K = 2.0;
         self.assertTrue(j > i)
         
@@ -47,13 +47,15 @@ class Test_MyTest(unittest.TestCase):
         self.assertTrue(waterJGreaterThanI == waterJEqualToI)
 
     # The first test for the body: Each glass can hold 250ml
-    # The output of the function must not exceed 0.25
-    def test_glass_max_volume(self):
-        i = 5;
-        j = 6;
-        K = 2.0;
+    # Assuming that K is given in litres (mentioned in function documentation)
+    # The first glass must have 0.25l for K>= 0.25l
+    def test_first_glass_max_volume(self):
+        i = 0;
+        j = 0;
+        K = 100.0;
+
         water = WaterOverflow.calculate_liquid(i, j, K)
-        self.assertLessEqual(0.25, water)
+        self.assertEqual(water, 0.25)
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main()  
