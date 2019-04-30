@@ -204,7 +204,7 @@ class Test_MyTest(unittest.TestCase):
         j = 1;
         K = 3.5; 
         wateriNegative = WaterOverflow.calculate_liquid(i, j, K)
-        wateriZero = WaterOverflow.calculate_liquid(-i, j, K)
+        wateriZero = WaterOverflow.calculate_liquid(0, j, K)
         
         self.assertTrue(wateriNegative == wateriZero)
 
@@ -215,7 +215,7 @@ class Test_MyTest(unittest.TestCase):
         j = -1;
         K = 3.5; 
         waterjNegative = WaterOverflow.calculate_liquid(i, j, K)
-        waterjZero = WaterOverflow.calculate_liquid(i, -j, K)
+        waterjZero = WaterOverflow.calculate_liquid(i, 0, K)
         
         self.assertTrue(waterjNegative == waterjZero)
 
