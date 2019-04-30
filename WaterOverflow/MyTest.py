@@ -72,5 +72,24 @@ class Test_MyTest(unittest.TestCase):
                 water = WaterOverflow.calculate_liquid(i, j, K)
                 self.assertLessEqual(water, 0.25)
 
+
+    # Making sure I can access all glasses will verify I have the correct iterators 
+    # in the for loops in the body. 
+    # This test checks if all glasses give results
+    def test_any_glass_has_some_liquid(self):
+        i = 3;
+        j = 3;
+        K = 100.0;
+        index = 1;
+
+        # The test passes for the first glass, so, I add the while loops to scan all values
+        # This will enable me to add the loop for all glasses in the body
+        for row in range(0, i):
+            for column in range(0, row + 1):
+                water = WaterOverflow.calculate_liquid(i, j, K)
+                self.assertIsNotNone(water)
+                self.assertNotEqual(water, 0.0)
+                index +=1
+        self.assertTrue(index + row + 1 == 10)
 if __name__ == '__main__':
     unittest.main()  

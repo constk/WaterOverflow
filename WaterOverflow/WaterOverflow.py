@@ -19,6 +19,16 @@ def calculate_liquid(i: int, j: int, K: float):
     index = 0;
     if(K > 0.25):
         glassVolume[index] = 0.25
+    
+    # Adding the loop to return the correct index for glasses other than the first one:
+    # I will start filling the rest of the glasses in a double for
+    # i and j are zero based, so is the glassVolume list.
+    # The first glass is already filled.
+    # I scan for each row (i) and the j will be from 0, up to i
+    for row in range(0, i):
+        for column in range(0, row + 1):
+            # Going to the second glass since the first one is filled
+            index += 1
 
     return float(glassVolume[index])
 
