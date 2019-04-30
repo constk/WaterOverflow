@@ -19,6 +19,9 @@ def calculate_liquid(i: int, j: int, K: float):
     index = 0;
     if(K > 0.25):
         glassVolume[index] = 0.25
+    # The else is added for test_first_glass_volume_smaller_than_capacity
+    else:
+        glassVolume[index] = K
     
     # Adding the loop to return the correct index for glasses other than the first one:
     # I will start filling the rest of the glasses in a double for
