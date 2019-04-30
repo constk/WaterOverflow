@@ -197,5 +197,27 @@ class Test_MyTest(unittest.TestCase):
         
         self.assertTrue(waterKNegative == waterKZero)
 
+    # If i < 0 will be considered as input error and will use i = 0 instead
+    def test_i_is_negative(self):
+
+        i = -1;
+        j = 1;
+        K = 3.5; 
+        wateriNegative = WaterOverflow.calculate_liquid(i, j, K)
+        wateriZero = WaterOverflow.calculate_liquid(-i, j, K)
+        
+        self.assertTrue(wateriNegative == wateriZero)
+
+    # If j < 0 will be considered as input error and will use j = 0 instead
+    def test_j_is_negative(self):
+
+        i = 1;
+        j = -1;
+        K = 3.5; 
+        waterjNegative = WaterOverflow.calculate_liquid(i, j, K)
+        waterjZero = WaterOverflow.calculate_liquid(i, -j, K)
+        
+        self.assertTrue(waterjNegative == waterjZero)
+
 if __name__ == '__main__':
     unittest.main()  
