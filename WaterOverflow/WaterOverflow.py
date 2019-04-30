@@ -48,13 +48,13 @@ def calculate_liquid(i: int, j: int, K: float):
                 K = 0.0
 
             # Code for test_glass_has_half_of_exceeded_above Part 1
-            glassVolume[index + row] = K 
+            glassVolume[index + row] = (K/2) 
             # Making sure the line above is compliant with test_first_glass_max_volume
             if(glassVolume[index + row] > 0.25):
                 glassVolume[index + row] = 0.25
 
             # Code for test_glass_has_half_of_exceeded_above Part 2
-            glassVolume[index + row + 1] = K 
+            glassVolume[index + row + 1] = (K/2) 
             # Making sure the line above is compliant with test_first_glass_max_volume
             if(glassVolume[index + row + 1] > 0.25):
                 glassVolume[index + row + 1] = 0.25
