@@ -91,5 +91,28 @@ class Test_MyTest(unittest.TestCase):
                 self.assertNotEqual(water, 0.0)
                 index +=1
         self.assertTrue(index + row + 1 == 10)
+
+    # Making sure I can access all glasses will verify I have the correct iterators 
+    # in the for loops in the body. 
+    # This test checks if all glasses give results
+    # The output of the function must not exceed 0.25
+    # This test demonstrates a limitation in the memory usage where i = j = 100000 cannot instantiate the glassVolume = [0]*int(glassesTotal);
+    # Similarly, i = j = 10000 or i = j = 1000 takes a significant time to run
+    def test_any_glass_has_some_liquid_100(self):
+        i = 100;
+        j = 100;
+        K = 250.0*i;
+        index = 1;
+
+        # The test passes for the first glass, so, I add the while loops to scan all values
+        # This will enable me to add the loop for all glasses in the body
+        for row in range(0, i):
+            for column in range(0, row + 1):
+                water = WaterOverflow.calculate_liquid(i, j, K)
+                self.assertIsNotNone(water)
+                index +=1
+        self.assertTrue(index + row + 1 == (i+1)*(i+2)/2)
+
+
 if __name__ == '__main__':
     unittest.main()  
