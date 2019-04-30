@@ -124,6 +124,21 @@ class Test_MyTest(unittest.TestCase):
         water = WaterOverflow.calculate_liquid(i, j, K)
         self.assertEqual(water, 0.15)
 
+    # Each glass above must be full before we have liquid in the glasses below
+    # i = 2 has j = 0 to 2, and this is total 6 glasses 
+    # 6 glasses amount to 1.5l
+    # The test will check for lesser than the full amount the glasses can hold, I chose 0.5l
+    # This test passes with a simple return K and the code for test_glass_max_volume, but I am keeping it as it will fail further in development
+    def test_glass_above_is_full(self):
+        i = 2;
+        #j is defined as zero and it will take values up to i in the while loop
+        j = 0;
+        K = 0.5;
+        #while j <= i:
+        water = WaterOverflow.calculate_liquid(i, j, K)
+        waterAbove = WaterOverflow.calculate_liquid(i-1, j, K)
+        self.assertTrue(waterAbove >= water)
+        #    j += 1
 
 if __name__ == '__main__':
     unittest.main()  
