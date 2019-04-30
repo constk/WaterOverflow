@@ -188,5 +188,14 @@ class Test_MyTest(unittest.TestCase):
         
         self.assertTrue(water10 == water11)
 
+    # If K < 0 will be considered as input error and will use K = 0.0 instead
+    def test_K_is_negative(self):
+
+        K = -0.35; 
+        waterKNegative = WaterOverflow.calculate_liquid(0, 0, K)
+        waterKZero = WaterOverflow.calculate_liquid(0, 0, 0)
+        
+        self.assertTrue(waterKNegative == waterKZero)
+
 if __name__ == '__main__':
     unittest.main()  
