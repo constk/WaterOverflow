@@ -176,7 +176,17 @@ class Test_MyTest(unittest.TestCase):
         self.assertTrue(water10 == water11)
         self.assertAlmostEqual(water10, (K - 0.25) / 2 )
 
+    # Each glass below must have liquid equal to the liquid of the glass next to it
+    # i = 0 and K = 0.35l, I expect glasses i = 1, j = 0 and i = 1, j = 1 to have
+    # 50ml each = 0.05l
+    def test_glass_has_equal_of_glass_next_to_it(self):
 
+        K = 0.35; 
+        water00 = WaterOverflow.calculate_liquid(0, 0, K)
+        water10 = WaterOverflow.calculate_liquid(1, 0, K)
+        water11 = WaterOverflow.calculate_liquid(1, 1, K)
+        
+        self.assertTrue(water10 == water11)
 
 if __name__ == '__main__':
     unittest.main()  
