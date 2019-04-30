@@ -6,6 +6,12 @@ import inspect
 # Calculates the volume of liquid in glass j of row i 
 # for a liquid volume K in litres
 def calculate_liquid(i: int, j: int, K: float):
+    #Code for test_i_is_negative and test_j_is_negative
+    if(i < 0):
+        i = 0;
+    if(j < 0):
+        j = 0;
+
     # Code for test_j_lesser_or_equal_than_i
     if (j > i):
         j = i
