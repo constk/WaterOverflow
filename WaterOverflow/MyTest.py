@@ -163,5 +163,20 @@ class Test_MyTest(unittest.TestCase):
         water = WaterOverflow.calculate_liquid(i, j, K)
         self.assertTrue(water == 0.0)
 
+    # Each glass below a full glass must have 1/2 of the liquid that exceeded 250ml in the full glass above
+    # i = 0 and K = 0.35l, I expect glasses i = 1, j = 0 and i = 1, j = 1 to have
+    # 50ml each = 0.05l
+    def test_glass_has_half_of_exceeded_above(self):
+
+        K = 0.35;
+        water00 = WaterOverflow.calculate_liquid(0, 0, K)
+        water10 = WaterOverflow.calculate_liquid(1, 0, K)
+        water11 = WaterOverflow.calculate_liquid(1, 1, K)
+
+        self.assertTrue(water10 == water11)
+        self.assertAlmostEqual(water10, (K - 0.25) / 2 )
+
+
+
 if __name__ == '__main__':
     unittest.main()  
