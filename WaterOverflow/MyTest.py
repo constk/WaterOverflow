@@ -138,5 +138,30 @@ class Test_MyTest(unittest.TestCase):
         self.assertTrue(waterAbove >= water)
         #    j += 1
 
+    # Each glass starting from the first, must have some liquid if K > (numberOfGlasses)*250.0
+    # i = 2 has j = 0 ... 2 and this is total 6 glasses 
+    # 6 glasses amount to 1.5l
+    # The test will check if given an adequate amount of liquid, the glasses are all full
+    # This test passes, but I am keeping it as it may fail further in development
+    def test_glass_has_liquid(self):
+        i = 2;
+        #j is defined as zero and it will take values up to i in the while loop
+        j = 2;
+        K = 1.5;
+        water = WaterOverflow.calculate_liquid(i, j, K)
+        self.assertTrue(water > 0.0)
+
+    # Each glass starting from the first, must have some liquid if K > (numberOfGlasses)*250.0
+    # i = 2 has j = 0 ... 2 and this is total 6 glasses 
+    # 6 glasses amount to 1.5l
+    # The test will check for empty glasses if there is not enought liquid for all
+    def test_glass_glass_doesnt_have_liquid(self):
+        i = 2;
+        #j is defined as zero and it will take values up to i in the while loop
+        j = 2;
+        K = 1.2;
+        water = WaterOverflow.calculate_liquid(i, j, K)
+        self.assertTrue(water == 0.0)
+
 if __name__ == '__main__':
     unittest.main()  
